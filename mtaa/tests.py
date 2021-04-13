@@ -1,69 +1,38 @@
 from django.test import TestCase
-from .models import *
-from django.contrib.auth.models import User
+from . models import *
 
-# Create your tests here.
-class ProfileTest(TestCase):
+class ProfileTestClass(TestCase):
+
     def setUp(self):
-        self.user = User(username = 'nazryn_sniper', email = 'nazryn@nazryn.com', password = 'passwadd')
-        self.user.save()
-        self.nazryn = Profile(bio = 'A python Programmer',contact = '054234444', user = self.user)
 
-    def tearDown(self):
-        Profile.objects.all().delete()
-
+        self.new_profile=Profile(bio='i love basketball')
+    # test for instance
     def test_instance(self):
-        self.assertTrue(isinstance(self.nazryn,Profile))
+        self.assertTrue(isinstance(self.new_profile,Profile))
+    # testing the save mothod
+    def test_save_profile(self):
+        self.new_profile.create_profile()
+        profile=Profile.objects.all()
+        self.assertTrue(len(profile)>0)
 
-    def test_save(self):
-        self.nazryn.create_user_profile(self.user,True)
-        self.nazryn.save_user_profile(self.user)
-        users = Profile.objects.all()
-        self.assertTrue(len(users)>0)
+class NeighbourhoodTestClass(TestCase):
 
-
-class HoodTest(TestCase):
-    def setUp(self):
-        self.user = User(username='nazryn_sniper', email='nazryn@nazryn.com', password='passwadd')
-        self.user.save()
-        self.nazryn = Profile(bio='A python Programmer', contact='054234444', user=self.user)
-        self.hood = Hood(name = 'Ngong',bio = "Milimani",admin = self.user)
-
-    def tearDown(self):
-        Profile.objects.all().delete()
-        self.hood.delete()
-
-    def test_instance(self):
-        self.assertTrue(isinstance(self.hood,Hood))
-
-    def test_save(self):
-        self.hood.save_hood()
-        hoods = Hood.objects.all()
-        self.assertTrue(len(hoods) == 1)
+        def setUp(self):
+            self.new_neighbourhood=Neighbourhood(name='killeleshwa',population=20101000)
+        def tearDown(self):
+            Neighbourhood.objects.all().delete()
 
 
-
-class PostTest(TestCase):
-    def setUp(self):
-        self.user = User(username='nazryn_sniper', email='nazryn@nazryn.com', password='passwadd')
-        self.user.save()
-        self.nazryn = Profile(bio='A python Programmer', contact='054234444', user=self.user)
-        self.hood = Hood(name='Ngong', bio="Milimani", admin=self.user)
-        self.business = Business(name="brian", owner = self.user, business_description= 'langat',
-                                 locale = self.hood,business_number = 4322323)
-        self.post = Post(title='Postings',post = 'This is the post',
-                         hood = self.hood, poster = self.user)
-
-    def tearDown(self):
-        Profile.objects.all().delete()
-        self.hood.delete()
-        self.business.delete()
-        self.post.delete()
-
-    def test_instance(self):
-        self.assertTrue(isinstance(self.post,Post))
-
-    def test_save(self):
-        self.post.save_post()
-        posts = Post.objects.all()
-        self.assertTrue(len(posts) == 1)
+        # test for instance
+        def test_instance(self):
+            self.assertTrue(isinstance(self.new_neighbourhood,Neighbourhood))
+        # test for save method
+        def test_save_neighbourhood(self):
+            self.new_neighbourhood.create_neigborhood()
+            neighborhood=Neighbourhood.objects.all()
+            self.assertTrue(len(neighborhood)>0)
+        def test_delete_neighbourhood(self):
+            self.new_neighbourhood.create_neigborhood()
+            self.new_neighbourhood.delete_neigborhood()
+            neighborhood=Neighbourhood.objects.all()
+            self.assertEqual(len(neighborhood),0)

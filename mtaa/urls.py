@@ -4,15 +4,15 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns=[
-    url('^$',views.index,name = 'index'),
-    url(r'^new/post$', views.new_post, name='newpost'),
-    url(r'^hoods', views.all_hoods, name='hoods'),
-    url(r'^business/',views.create_business,name = 'business'),
-    url(r'^profile/(?P<user_id>\d+)?$', views.profile, name='profile'),
-    url(r'^createHood/$', views.createHood, name='createHood'),
-    url(r'^update/profile$', views.updateprofile, name='updateprofile'),
-    url(r'^join/(\d+)', views.join, name='joinHood'),
-    url(r'^search/$', views.search, name='search'),
+    url('^$',views.home,name = 'home'),
+    url(r'^profile/', views.profile, name='profile'),
+    url('^neighbourhood', views.neighbourhood, name='neighbourhood'),
+    url('^addneighbourhood',views.addneighbourhood,name="addneighbourhood"),
+    url(r'^detail/(?P<neighbourhood_id>\d+)/$' , views.neighbourhood_details, name='detail' ),
+    url(r'^new_business/(?P<pk>\d+)$',views.new_business,name='new_business'),
+    url(r'^new_post/(?P<pk>\d+)$',views.new_post,name='new_post'),
+    url(r'^search/',views.search_hoods,name='search_hoods'),
 ]
+
 if settings.DEBUG:
-    urlpatterns+=static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+    urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

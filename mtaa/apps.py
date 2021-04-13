@@ -1,5 +1,8 @@
 from django.apps import AppConfig
 
 
-class NeighbourhoodConfig(AppConfig):
-    name = 'neighbourhood'
+class MtaaConfig(AppConfig):
+    name = 'mtaa'
+
+    def ready(self):
+        import mtaa.signals
