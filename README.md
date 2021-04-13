@@ -47,3 +47,16 @@ click [here](https://me-hood.herokuapp.com/)
 To access this application on your command line, you need to clone it.
 `git clone https://github.com/NazarineWasonga/Neighbourhood.git`
 
+### Prerequisites
+
+A user will require git, Django, postgresql and python3.7+ installed in their machine.
+To install these two, you can use the following commands
+
+    #git
+$ sudo apt install git-all
+    #python3.7
+    $ sudo apt-get install python3.7.
+    #django
+$ pip install django==3.2
+    #postgres
+$ sudo apt-get install postgresql postgresql-contrib libpq-dev
