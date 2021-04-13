@@ -37,3 +37,13 @@ Mtaa is a web application that allows you to be in the loop about everything hap
 | All user details including the name, posts and businesses created by the user are displayed                                 | User clicks on the Profile link                                        | A User profile with all info pertaining the user is displayed.                                 |
 | An Edit Form is displayed to update user info.                                                                              | Use clicks the edit profile button, makes changes and submits the form | A user edit form with update fields is shown to the user to enable them update necessary info. |
 |User is logged out of the application |User clicks on the Logout dropdown |User logged out and redirected to the register/login page.|
+
+## Application link
+
+click [here](https://me-hood.herokuapp.com/)
+
+## Set up and Installation
+
+To access this application on your command line, you need to clone it.
+`git clone https://github.com/NazarineWasonga/neighbourhood.git`
+
