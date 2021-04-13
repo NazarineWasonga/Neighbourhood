@@ -60,3 +60,23 @@ $ sudo apt install git-all
 $ pip install django==3.2
     #postgres
 $ sudo apt-get install postgresql postgresql-contrib libpq-dev
+
+## Running the Application
+* Creating the virtual environment
+
+        $ python3.7 -m venv --without-pip virtual
+        $ source virtual/bin/activate
+        $ curl https://bootstrap.pypa.io/get-pip.py | python
+
+* Installing Django and other Modules
+
+        $ see Requirements.txt
+
+* To run the application, in your terminal:
+
+        $ python3.7 manage.py runserver
+
+## Testing the Application
+* To run the tests for the class files:
+
+        $ python3.7 manage.py test neighbourhood
