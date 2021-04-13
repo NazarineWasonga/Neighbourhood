@@ -16,3 +16,11 @@ Mtaa is a web application that allows you to be in the loop about everything hap
 6. A user can View their profile page with a general name and their neighborhoods.
 7. A user can view a list of different businesses in my neighborhood.
 8. A user can find Contact Information for the health department and Police authorities in their neighborhood.
+
+## Technologies Used
+
+1. Python 3.7
+2. HTML and CSS
+3. Django
+4. Postgres
+5. Heroku for deployment
