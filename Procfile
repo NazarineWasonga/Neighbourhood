@@ -1,1 +1,1 @@
-web: gunicorn hoodwatch.wsgi --log-file -
+web: gunicorn hoodwatch.wsgi web: gunicorn jamii.wsgi --log-file -
